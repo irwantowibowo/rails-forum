@@ -6,11 +6,11 @@ class PostsController < ApplicationController
 	end
 
 	def new
-		@post = Post.new
+		@post = current_user.posts.build
 	end
 
 	def create
-		@post = Post.new(resources_params)
+		@post = current_user.posts.build(resources_params)
 		if @post.save
 			redirect_to @post
 		else
