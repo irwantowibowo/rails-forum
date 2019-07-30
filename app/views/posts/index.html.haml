@@ -1,12 +1,10 @@
-%h1 Welcome To My Forum
-
-= link_to "Post Baru", new_post_path
-
-- @post.each do |p|
-	%h2= link_to p.title.titleize, p
-	%p
-		Diposting pada 
-		= time_ago_in_words(p.created_at)
-		- if !p.user.nil?
-			= p.user.email
+#post
+	- @post.each do |p|
+		.post
+			%h2.title= link_to p.title.titleize, p
+			%p.date
+				Diposting pada 
+				= time_ago_in_words(p.created_at)
+				- if !p.user.nil?
+					= p.user.email
 
