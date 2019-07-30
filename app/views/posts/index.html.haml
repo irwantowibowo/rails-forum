@@ -7,5 +7,6 @@
 	%p
 		Diposting pada 
 		= time_ago_in_words(p.created_at)
-		= p.user.email
+		- if !p.user.nil?
+			= p.user.email
 
