@@ -1,1 +1,10 @@
 %h1 Welcome To My Forum
+
+= link_to "Post Baru", new_post_path
+
+- @post.each do |p|
+	%h2= link_to p.title.titleize, p
+	%p
+		Diposting pada 
+		= time_ago_in_words(p.created_at)
+
